@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "number-system": [
+        "dist/number-system"
+      ],
+      "number-system/*": [
+        "dist/number-system/*"
+      ]
+    }
   }
 }

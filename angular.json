@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "number-system": {
+      "root": "projects/number-system",
+      "sourceRoot": "projects/number-system/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/number-system/tsconfig.lib.json",
+            "project": "projects/number-system/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/number-system/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/number-system/src/test.ts",
+            "tsConfig": "projects/number-system/tsconfig.spec.json",
+            "karmaConfig": "projects/number-system/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/number-system/tsconfig.lib.json",
+              "projects/number-system/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "number-system-converter"
