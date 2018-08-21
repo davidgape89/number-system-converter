@@ -1,7 +1,11 @@
-import {convertFromDecimal} from './number-system';
+import NumberSystem from './number-system';
 
-describe('should convert 120 to 231 on base 7 correctly', () => {
-  const result = convertFromDecimal(120, 7);
+describe('number system class', () => {
 
-  expect(result).toEqual(231);
+  it('should convert 120 in base 10 to 231 in base 7', () => {
+    const result = NumberSystem.convertFromDecimal('120', 7);
+
+    expect(result).toEqual('231');
+  });
+
 });
