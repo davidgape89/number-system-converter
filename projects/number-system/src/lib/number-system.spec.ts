@@ -1,4 +1,4 @@
-import NumberSystem from './number-system';
+import {NumberSystem} from './number-system';
 
 describe('number system class', () => {
 

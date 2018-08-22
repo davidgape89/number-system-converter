@@ -17,4 +17,4 @@ class NumberSystem {
   }
 }
 
-export default NumberSystem;
+export {NumberSystem};
