@@ -43,6 +43,12 @@ describe('number system class', () => {
       }).toThrow();
     });
 
+    it('should throw an error when the number is invalid', () => {
+      expect(() => {
+        NumberSystem.convertToDecimal('F', 2);
+      }).toThrow();
+    })
+
   });
 
 });
