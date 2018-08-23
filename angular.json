@@ -25,7 +25,11 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -126,7 +130,7 @@
       "root": "projects/number-system",
       "sourceRoot": "projects/number-system/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "number-system",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
