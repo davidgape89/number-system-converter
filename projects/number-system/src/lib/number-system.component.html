@@ -1,0 +1,45 @@
+<form [formGroup]="numberConverterForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Number:</label>
+        <input 
+            type="text" 
+            formControlName="number"/>
+        <div 
+            *ngIf="numberConverterForm.get('number').invalid" 
+            class="invalid-feedback">
+            <div *ngIf="numberConverterForm.get('number').errors.required">A number is required.</div>
+            <div *ngIf="numberConverterForm.get('number').errors.pattern">The number is invalid.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>From Base:</label>
+        <input 
+            type="number" 
+            formControlName="fromBase"/>
+        <div 
+            *ngIf="numberConverterForm.get('fromBase').errors" 
+            class="invalid-feedback">
+            <div *ngIf="numberConverterForm.get('fromBase').errors.required">A source base is required.</div>
+            <div *ngIf="
+                numberConverterForm.get('fromBase').errors.min ||
+                numberConverterForm.get('fromBase').errors.max">Range out of bounds. (2-32)</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>To Base:</label>
+        <input 
+            type="number" 
+            formControlName="toBase"/>
+        <div 
+            *ngIf="numberConverterForm.get('toBase').errors" 
+            class="invalid-feedback">
+            <div *ngIf="numberConverterForm.get('toBase').errors.required">A source base is required.</div>
+            <div *ngIf="
+                numberConverterForm.get('toBase').errors.min ||
+                numberConverterForm.get('toBase').errors.max">Range out of bounds. (2-32)</div>
+        </div>
+    </div>
+    <button [disabled]="!numberConverterForm.valid">Submit</button>
+    <div *ngIf="result">Result: {{result}}</div>
+    <div *ngIf="error">{{error}}</div>
+</form>

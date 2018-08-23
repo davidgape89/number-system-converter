@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NumberSystemComponent } from './number-system.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('NumberSystemComponent', () => {
   let component: NumberSystemComponent;
@@ -8,7 +9,8 @@ describe('NumberSystemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NumberSystemComponent ]
+      declarations: [ NumberSystemComponent ],
+      imports: [ ReactiveFormsModule ]
     })
     .compileComponents();
   }));
