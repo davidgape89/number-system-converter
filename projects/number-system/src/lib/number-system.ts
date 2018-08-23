@@ -16,7 +16,7 @@ class NumberSystem {
       throw new Error('The base provided is out of range (2-32)');
     
     if (isNaN(result))
-      throw new Error('Invalid number provided');
+      throw new Error('Invalid number for the base provided');
 
     return result.toString();
   }
