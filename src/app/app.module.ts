@@ -1,18 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { NumberSystemModule } from 'number-system';
+import { NgModule, Injector } from '@angular/core';
+import { NumberSystemModule, NumberSystemComponent } from 'number-system';
 
-import { AppComponent } from './app.component';
+import { createCustomElement } from '@angular/elements';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     NumberSystemModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {
+  }
+
+  ngDoBootstrap() {
+    const numberSystemConverter = createCustomElement(NumberSystemComponent, {injector: this.injector});
+    customElements.define('number-system-converter', numberSystemConverter);
+  }
+ }
