@@ -38,6 +38,7 @@ This project can be used in several ways. If the library were to be deployed as 
 - Copy the file `elements/number-system-converter.js` in any html project and use the element like so:
     ```
     <number-system-converter></number-system-converter>
-    <script src="number-system-converter.js"></script>```
+    <script src="number-system-converter.js"></script>
+    ```
 
 
