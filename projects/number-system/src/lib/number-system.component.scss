@@ -1,0 +1,57 @@
+$gap-m: .5rem;
+$gap-s: .2rem;
+
+form {
+    background-color: #C9DAEA;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    // font-size: 62.5%;
+    max-width: 300px;
+    padding: $gap-m;
+}
+
+h3 {
+    text-align: center;
+    margin: $gap-m 0;
+}
+
+input {
+    padding: $gap-s;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    padding: $gap-s;
+}
+
+.form-group--half-width {
+    width: 50%;
+}
+
+.display-row {
+    display: flex;
+    flex-direction: row;
+}
+
+label {
+    font-size: 12px;
+    margin-bottom: $gap-s;
+}
+
+button {
+    margin: $gap-m 0;
+    padding: $gap-m;
+    width: 100%;
+}
+
+.error-message {
+    background-color: #AB2346;
+    color: white;
+    font-size: 12px;
+    margin-top: $gap-m;
+    padding: $gap-m;
+}
+
+.result {
+    text-align: center;
+}

@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NumberSystem } from './number-system';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'ng-number-system-converter',
   templateUrl: './number-system.component.html',
-  styles: []
+  styleUrls: ['./number-system.component.scss'],
+  encapsulation: ViewEncapsulation.Native
 })
 export class NumberSystemComponent implements OnInit {
   public numberConverterForm: FormGroup;
   public result: string;
+  public resultBase: string;
   public error: string;
   
   constructor() {}
@@ -23,14 +25,19 @@ export class NumberSystemComponent implements OnInit {
     });
   }
 
+  get number(): AbstractControl { return this.numberConverterForm.get('number'); }
+  get fromBase(): AbstractControl { return this.numberConverterForm.get('fromBase'); }
+  get toBase(): AbstractControl { return this.numberConverterForm.get('toBase'); }
+
   public onSubmit() {
-    let number = this.numberConverterForm.get('number').value;
-    let fromBase = this.numberConverterForm.get('fromBase').value;
-    let toBase = this.numberConverterForm.get('toBase').value;
-    console.log(this);
+    let number = this.number.value;
+    let fromBase = this.fromBase.value;
+    let toBase = this.toBase.value;
+
     try {
       let decimalNumber = NumberSystem.convertToDecimal(number, fromBase);
       this.result = NumberSystem.convertFromDecimal(decimalNumber, toBase);
+      this.resultBase = toBase;
       this.error = '';
     } catch (e) {
       this.error = e.message;
